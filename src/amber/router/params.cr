@@ -68,6 +68,7 @@ module Amber::Router
       params_hash = Hash(String, String | Array(String) | Nil).new
       query.each { |key, _| params_hash[key] = query[key] }
       route.each { |key, _| params_hash[key] = route[key] }
+      json.each { |key, _| params_hash[key] = json[key] }
       multipart.each { |key, _| params_hash[key] = multipart[key] }
       form.each { |key, _| params_hash[key] = form[key] }
       params_hash
